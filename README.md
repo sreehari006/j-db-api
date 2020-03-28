@@ -10,7 +10,7 @@ POST http://localhost:8000/jdb/db/create
 
 Request Body:
 {
-	"db": "my-db-1"
+  "db": "my-db-1"
 }
 
 #dbName - String    #Ex: MyDB
@@ -33,12 +33,12 @@ POST http://localhost:8000/jdb/table/create
 
 Request Body:
 {
-	"db": "my-db-1", 
-	"table": "my-table-1", 
-	"schema": {
-		"pk": "pk",
-		"sk": {"0": "sk1", "1": "sk2"}
-	}
+  "db": "my-db-1", 
+  "table": "my-table-1", 
+  "schema": {
+     "pk": "pk",
+     "sk": {"0": "sk1", "1": "sk2"}
+  }
 }
 
 #dbName - String        # Ex: MyDB
@@ -63,9 +63,9 @@ This method is used to scan the list of partition keys and secondary partition k
 GET http://localhost:8000/jdb/table/scan-keys
 Request Body:
 {
-	"db": "my-db-1", 
-	"table": "my-table-1", 
-	"keys": "id"
+  "db": "my-db-1", 
+  "table": "my-table-1", 
+  "keys": "id"
 }
 
 #dbName - String        # Ex: MyDB
@@ -93,19 +93,19 @@ http://localhost:8000/jdb/table/put-item
 
 Request Body:
 {
-	"db": "my-db-1", 
-	"table": "my-table-1", 
-	"options": {
-		"keys":{
-      "id" : "pk", 
-      "sk2":"sk2-2-value", 
-      "sk1" : "sk1-1-value"
-    }, 
-		"item":{
-      "Key1":"Value1", 
-      "Key2": "Value2"
+  "db": "my-db-1", 
+  "table": "my-table-1", 
+  "options": {
+     "keys":{
+        "id" : "pk", 
+        "sk2":"sk2-2-value", 
+        "sk1" : "sk1-1-value"
+     }, 
+     "item":{
+       "Key1":"Value1", 
+       "Key2": "Value2"
     }
-	}
+  }
 }
 
 #dbName - String        # Ex: MyDB
@@ -121,11 +121,15 @@ GET http://localhost:8000/jdb/table/get-item
 
 Request Body:
 {
-	"db": "my-db-1", 
-	"table": "my-table-1", 
-	"options": {
-		"keys":{"id" : "pk", "sk2":"sk2-2-value", "sk1" : "sk1-1-value"}
-	}
+  "db": "my-db-1", 
+  "table": "my-table-1", 
+  "options": {
+     "keys":{
+     	"id" : "pk", 
+	"sk2":"sk2-2-value", 
+	"sk1" : "sk1-1-value"
+     }
+  }
 }
 
 #dbName - String        # Ex: MyDB
@@ -167,9 +171,9 @@ Request Body:
   "table": "my-table-1",
   "options": {
       "keys": {
-          "id": "id1",
-          "sk2": "sk2-2-value",
-          "sk1": "sk1-1-value"
+         "id": "id1",
+         "sk2": "sk2-2-value",
+         "sk1": "sk1-1-value"
       }
   }
 }
@@ -191,9 +195,9 @@ Request Body:
     "table": "my-table-1",
     "options": {
         "keys": {
-            "id": "id1",
-            "sk2": "sk2-2-value",
-            "sk1": "sk1-1-value"
+           "id": "id1",
+           "sk2": "sk2-2-value",
+           "sk1": "sk1-1-value"
         },
         "path": "attr1?attr2?attr3#2?attr4",
         "tag": "tag",
@@ -217,9 +221,9 @@ Request Body:
     "table": "my-table-1",
     "options": {
         "keys": {
-            "id": "id1",
-            "sk2": "sk2-2-value",
-            "sk1": "sk1-1-value"
+           "id": "id1",
+           "sk2": "sk2-2-value",
+           "sk1": "sk1-1-value"
         },
         "path": "attr1?attr2?attr3#2?attr4"
     }
