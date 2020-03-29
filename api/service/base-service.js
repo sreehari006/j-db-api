@@ -35,6 +35,11 @@ exports.getItem = async function(req, res) {
 		res.send(result)
 }
 
+exports.getItemAt = async function(req, res) {
+		let result =  await index.getItemAt(req.body.db, req.body.table, req.body.options)
+		res.send(result)
+}
+
 exports.updateItem = async function(req, res) {
 		let result =  await index.updateItem(req.body.db, req.body.table, req.body.options)
 		res.send(result)

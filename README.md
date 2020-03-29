@@ -27,14 +27,14 @@ Request Body:
 ```
 
 ###### Create Table
-This methos is used to create a new table.
+This method is used to create a new table.
 ```
 POST http://localhost:8000/jdb/table/create
 
 Request Body:
 {
-  "db": "my-db-1", 
-  "table": "my-table-1", 
+  "db": "my-db-1",
+  "table": "my-table-1",
   "schema": {
      "pk": "pk",
      "sk": {"0": "sk1", "1": "sk2"}
@@ -63,8 +63,8 @@ This method is used to scan the list of partition keys and secondary partition k
 GET http://localhost:8000/jdb/table/scan-keys
 Request Body:
 {
-  "db": "my-db-1", 
-  "table": "my-table-1", 
+  "db": "my-db-1",
+  "table": "my-table-1",
   "keys": "id"
 }
 
@@ -93,16 +93,16 @@ http://localhost:8000/jdb/table/put-item
 
 Request Body:
 {
-  "db": "my-db-1", 
-  "table": "my-table-1", 
+  "db": "my-db-1",
+  "table": "my-table-1",
   "options": {
      "keys":{
-        "id" : "pk", 
-        "sk2":"sk2-2-value", 
+        "id" : "pk",
+        "sk2":"sk2-2-value",
         "sk1" : "sk1-1-value"
-     }, 
+     },
      "item":{
-       "Key1":"Value1", 
+       "Key1":"Value1",
        "Key2": "Value2"
     }
   }
@@ -121,12 +121,12 @@ GET http://localhost:8000/jdb/table/get-item
 
 Request Body:
 {
-  "db": "my-db-1", 
-  "table": "my-table-1", 
+  "db": "my-db-1",
+  "table": "my-table-1",
   "options": {
      "keys":{
-     	"id" : "pk", 
-	"sk2":"sk2-2-value", 
+     	"id" : "pk",
+	"sk2":"sk2-2-value",
 	"sk1" : "sk1-1-value"
      }
   }
@@ -137,6 +137,27 @@ Request Body:
 #options - JSON
 ```
 Keys (Partition Key and all Secondary Partition Keys) are mandatory.
+
+###### Table - Get Item At
+This method is used to get attribute or element of an Item at a particular position.
+```
+POST http://localhost:8000/jdb/table/get-item-at
+
+Request Body:
+{
+  "db": "my-db-1",
+  "table": "my-table-1",
+  "options": {
+      "keys": {
+          "id": "id1",
+          "sk2": "sk2-2-value",
+          "sk1": "sk1-1-value"
+      },
+      "path": "attr1?attr2?attr3#2?attr4"
+  }
+}
+```
+Keys (Partition Key and all Secondary Partition Keys) are mandatory. Path is also mandatory, Path acts as a cursor to fetch attribute or element at a particular position in the Item. "?" is used as a delimiter to traverse through the JSON object while "#" is used to specify the element index if it is an array.
 
 ###### Table - Update Item
 This method is used to update an existing Item in the table.
